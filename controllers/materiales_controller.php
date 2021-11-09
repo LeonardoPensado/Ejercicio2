@@ -20,7 +20,10 @@ class materiales_controller {
         $this->ver();
     }
 
-    public function nuevoRegistro(){
+    public function nuevoRegistro($id = null){
+        if($id){
+            $material = $this->mat->search_material($id);
+        }
         require_once("views/formulario.php");
     }
 
@@ -29,8 +32,9 @@ class materiales_controller {
         $this->ver();
     }
 
-    public function editar(){
-        
+    public function actualizar($record){
+        $actualizar = $this->mat->update_material($record);
+        $this->ver();
     }
 
     public function buscar() {

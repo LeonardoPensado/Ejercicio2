@@ -18,6 +18,16 @@
       exit;
    }
 
+   if(!empty($_POST['action']) && $_POST['action'] == 'editar'){
+      $controller->nuevoRegistro($_POST['id']);
+      exit;
+   }
+
+   if(!empty($_POST['action']) && $_POST['action'] == 'actualizar'){
+      $controller->actualizar($_POST);
+      exit;
+   }
+
    $controller->ver();
 
 

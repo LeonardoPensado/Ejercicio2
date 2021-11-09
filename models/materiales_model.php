@@ -53,4 +53,27 @@ class materiales_model{
             return false;
         }
     }
+
+    public function search_material($id){
+        $sql = "SELECT * FROM materiales WHERE id_Material = $id";
+        $result = $this->db->query($sql);
+        $num_rows = $result->num_rows;
+
+        $data = [];
+        if ($num_rows > 0) {
+            $data = $result->fetch_all(MYSQLI_ASSOC);
+        }
+    
+        return $data;
+    }
+
+    public function update_material($record){
+        $sql = "UPDATE materiales SET nombreMaterial = '" . $record["nombre"] . "', unidadMedida = '" . $record["unidad"] . "', precio = " . $record["precio"] . ", stock = " . $record["stock"] . " WHERE id_Material = " . $record["id"];
+        $result = $this->db->query($sql);
+        if($result){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
