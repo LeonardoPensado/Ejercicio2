@@ -10,7 +10,7 @@
      <h1>Cruz Azul</h1>
         <form action="/CruzAzul/" method="POST">
             <input type="hidden" name="action" value="agregar">
-            <input type="submit" value="Agregar">
+            <input type="submit" value="Agregar Nuevo">
         </form>
 
      <table>
@@ -35,10 +35,12 @@
                     <td>
                         <form action="/CruzAzul/" method="POST">
                             <input type="hidden" name="action" value="editar">
+                            <input type="hidden" name="id" value="<?= $dato['id_Material']?>">
                             <input type="submit" value="Editar">
                         </form>
                         <form action="/CruzAzul/" method="POST">
                             <input type="hidden" name="action" value="eliminar">
+                            <input type="hidden" name="id" value="<?= $dato['id_Material']?>">
                             <input type="submit" value="Eliminar">
                         </form>
                     </td>

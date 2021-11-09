@@ -16,12 +16,12 @@ class materiales_controller {
     }
 
     public function crear($datos) {
-        $nuevo = $this->mat->create_materiales($datos);
+        $nuevo = $this->mat->add_materiales($datos);
         $this->ver();
     }
 
     public function nuevoRegistro(){
-        require_once("views/nuevo_registro.php");
+        require_once("views/formulario.php");
     }
 
     public function eliminar() {

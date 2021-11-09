@@ -5,10 +5,12 @@
    
    if(!empty($_POST['action']) && $_POST['action'] == 'agregar'){
       $controller->nuevoRegistro();
+      exit;
    }
 
    if(!empty($_POST['action']) && $_POST['action'] == 'crear'){
       $controller->crear($_POST);
+      exit;
    }
 
    $controller->ver();

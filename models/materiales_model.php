@@ -16,14 +16,6 @@ class materiales_model{
     }
 
     public function get_materiales(){
-        // $consulta = $this->db->query("SELECT * FROM materiales;");
-        // // var_dump($consulta->fetch_assoc());
-        // while($filas=$consulta->fetch_assoc()){
-        //     $this->materiales[]=$filas;
-        // }
-        // $this->materiales = $consulta->fetch_assoc();
-        // return $this->materiales;
-        
         $sql = "SELECT *, stock*precio as total from materiales";
         $result = $this->db->query($sql);
         $num_rows = $result->num_rows;
@@ -36,9 +28,25 @@ class materiales_model{
         return $data;
     }
 
-    public function  create_materiales($record){
-        $sql = "INSERT INTO materiales('nombreMaterial','unidadMedida','precio','stock') 
-        VALUES('" . $record['nombreMaterial'] . "','" . $record['unidadMedida'] . "','" . $record['precio'] . "','" . $record['stock'] . "')";
+    public function  add_materiales($record){
+        
+        $sql = "INSERT INTO materiales(nombreMaterial,unidadMedida,precio,stock) 
+        VALUES('" . $record['nombre'] . "','" . $record['unidad'] . "'," . $record['precio'] . "," . $record['stock'] . ")";
+        var_dump($sql);
+        try {
+            $result = $this->db->query($sql);
+        } catch(Exception $e){
+            die($e->getMessage());
+        }
+        if($result){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function check_materiales($id){
+        $sql = "DELETE FROM materiales WHERE 'id_Material' = $id  AND 'stock'=0;";
         $result = $this->db->query($sql);
         if($result){
             return true;
