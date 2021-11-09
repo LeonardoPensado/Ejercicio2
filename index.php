@@ -28,6 +28,11 @@
       exit;
    }
 
+   if(!empty($_POST['action']) && $_POST['action'] == 'buscar'){
+      $controller->searchbyname($_POST['nombre']);
+      exit;
+   }
+
    $controller->ver();
 
 

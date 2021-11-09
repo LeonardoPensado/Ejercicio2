@@ -76,4 +76,17 @@ class materiales_model{
             return false;
         }
     }
+
+    public function searchbyname($nombre){
+        $sql = "SELECT *, stock*precio as total FROM materiales WHERE nombreMaterial = '$nombre'";
+        $result = $this->db->query($sql);
+        $num_rows = $result->num_rows;
+
+        $data = [];
+        if ($num_rows > 0) {
+            $data = $result->fetch_all(MYSQLI_ASSOC);
+        }
+    
+        return $data;
+    }
 }

@@ -37,7 +37,8 @@ class materiales_controller {
         $this->ver();
     }
 
-    public function buscar() {
-
+    public function searchbyname($nombre) {
+        $datos = $this->mat->searchbyname($nombre);
+        require_once("views/materiales_view.php");
     }
 }
