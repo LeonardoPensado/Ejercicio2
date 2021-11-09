@@ -32,7 +32,6 @@ class materiales_model{
         
         $sql = "INSERT INTO materiales(nombreMaterial,unidadMedida,precio,stock) 
         VALUES('" . $record['nombre'] . "','" . $record['unidad'] . "'," . $record['precio'] . "," . $record['stock'] . ")";
-        var_dump($sql);
         try {
             $result = $this->db->query($sql);
         } catch(Exception $e){
@@ -45,8 +44,8 @@ class materiales_model{
         }
     }
 
-    public function check_materiales($id){
-        $sql = "DELETE FROM materiales WHERE 'id_Material' = $id  AND 'stock'=0;";
+    public function delete_material($id){
+        $sql = "DELETE FROM materiales WHERE id_Material = $id  AND stock = 0";
         $result = $this->db->query($sql);
         if($result){
             return true;

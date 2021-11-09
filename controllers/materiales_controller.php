@@ -24,8 +24,9 @@ class materiales_controller {
         require_once("views/formulario.php");
     }
 
-    public function eliminar() {
-
+    public function eliminar($record) {
+        $eliminado = $this->mat->delete_material($record['id']);
+        $this->ver();
     }
 
     public function editar(){

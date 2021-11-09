@@ -13,6 +13,11 @@
       exit;
    }
 
+   if(!empty($_POST['action']) && $_POST['action'] == 'eliminar'){
+      $controller->eliminar($_POST);
+      exit;
+   }
+
    $controller->ver();
 
 
