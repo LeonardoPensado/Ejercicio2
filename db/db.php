@@ -13,7 +13,7 @@
             // if(! $conn ) {
             //     die('gg la conexión: ' . mysql_error());
             // }
-            $conexion = new mysqli("localhost", "root", "", "dbcruzazul");
+            $conexion = new mysqli("localhost", "root", "r00t2018", "dbcruzazul");
             $conexion->query("SET NAMES 'utf8'");
             return $conexion;
         }
